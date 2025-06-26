@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
-FROM chainguard/python:latest-dev@sha256:1a4f456199de0fcfe5dc420b286fb96251bb826b4e8afedab1da33d4d602a421 AS builder
+FROM chainguard/python:latest-dev@sha256:ec4d7d778f4b3d535102e680ba343608e708bd08ec2cdff3b7fd909e8c38e5b1 AS builder
 
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -12,7 +12,7 @@ RUN python -m venv /flawfinder/venv
 # Cf. https://pypi.org/project/flawfinder/
 RUN pip install flawfinder==2.0.19
 
-FROM chainguard/python:latest@sha256:1e8da8caa7cd3544aa2e5f3e447f99458ae44fc6a12b5bfe8b47c817367cb45e
+FROM chainguard/python:latest@sha256:36f63157191eb52f3296e149e009b6e5a989f5fa03a2e307728545e3cc46fcf0
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-05-21"

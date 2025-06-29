@@ -10,7 +10,7 @@ WORKDIR /flawfinder
 RUN python -m venv /flawfinder/venv
 
 # Cf. https://pypi.org/project/flawfinder/
-RUN pip install flawfinder==2.0.19
+RUN pip install flawfinder==2.0.19 --no-cache-dir
 
 FROM chainguard/python:latest@sha256:f05174c45fa717309a5d504a976c12690eccd650efeac5221d1d53b32ff41e71
 

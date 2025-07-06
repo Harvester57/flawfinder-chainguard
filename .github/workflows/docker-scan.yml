@@ -11,6 +11,19 @@ permissions:
   contents: read
 
 jobs:
+  wait-for-build:
+    name: Wait for build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for tests
+        uses: lewagon/wait-on-check-action@0dceb95e7c4cad8cc7422aee3885998f5cab9c79  # v1.4.0
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'build'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 15
+          allowed-conclusions: success,skipped
+
   docker:
     permissions:
       contents: write # for actions/checkout to fetch code

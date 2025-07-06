@@ -2,6 +2,12 @@ version: 2
 updates:
 - package-ecosystem: "docker" # See documentation for possible values
   directory: "/" # Location of package manifests
+  commit-message:
+    prefix: "docker"
+  reviewers:
+  - "Harvester57"
+  assignees:
+  - "Harvester57"
   schedule:
     # Check for updates to GitHub Actions every weekday
     interval: "cron"
@@ -16,8 +22,16 @@ updates:
       applies-to: version-updates # Applies the group rule to version updates
       patterns:
       - "*"
+        # A wildcard that matches all dependencies in the package
+        # ecosystem. Note: using "*" may open a large pull request
 - package-ecosystem: "github-actions"
   directory: "/"
+  commit-message:
+    prefix: "actions"
+  reviewers:
+  - "Harvester57"
+  assignees:
+  - "Harvester57"
   schedule:
     # Check for updates to GitHub Actions every weekday
     interval: "cron"
@@ -32,3 +46,5 @@ updates:
       applies-to: version-updates # Applies the group rule to version updates
       patterns:
       - "*"
+        # A wildcard that matches all dependencies in the package
+        # ecosystem. Note: using "*" may open a large pull request

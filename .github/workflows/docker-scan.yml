@@ -15,7 +15,7 @@ jobs:
     name: Wait for build
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for tests
+      - name: Wait for build
         uses: lewagon/wait-on-check-action@0dceb95e7c4cad8cc7422aee3885998f5cab9c79  # v1.4.0
         with:
           ref: ${{ github.ref }}

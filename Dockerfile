@@ -20,4 +20,4 @@ ENV PATH="/flawfinder/venv/bin:$PATH"
 RUN pip install flawfinder==2.0.19 --no-cache-dir
 RUN flawfinder
 
-ENTRYPOINT [ 'flawfinder' ]
+ENTRYPOINT [ "flawfinder" ]

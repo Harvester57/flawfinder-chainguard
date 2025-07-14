@@ -18,7 +18,7 @@ RUN python -m venv /flawfinder/venv
 ENV PATH="/flawfinder/venv/bin:$PATH"
 
 # Cf. https://pypi.org/project/flawfinder/
-RUN pip install -r requirements.txt --no-cache-dir
+RUN pip install -r requirements.txt --user --no-cache-dir
 RUN flawfinder
 
 ENTRYPOINT [ "flawfinder" ]

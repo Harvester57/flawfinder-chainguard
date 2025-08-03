@@ -18,7 +18,7 @@ Information extracted from the Dockerfile:
 *   **Base Image**: `chainguard/python:latest` (Final stage)
 *   **Flawfinder Version**: `2.0.19`
 *   **Maintainer**: florian.stosse@gmail.com
-*   **Last Update Label**: 2025-05-21
+*   **Last Update Label**: 2025-08-03
 *   **Author**: Florian Stosse
 *   **Description Label**: Flawfinder v2.0.19, built using Python Chainguard based image
 *   **License Label (for Dockerfile)**: MIT license

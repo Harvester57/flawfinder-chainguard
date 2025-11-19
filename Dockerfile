@@ -1,5 +1,6 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
-FROM chainguard/python:latest-dev@sha256:8b792b8c2c50610c27685629b93dab90578d704a6e63019d9fce6d4a80ce7ba0 AS builder
+ARG BUILDKIT_SBOM_SCAN_STAGE=true
+FROM chainguard/python:latest-dev@sha256:62dce7cededa1d3e50394d30b33e059a3b7c3d21187fea35bab4419abb245420 AS builder
 
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -14,7 +15,7 @@ ENV PATH="/flawfinder/venv/bin:$PATH"
 # Cf. https://pypi.org/project/flawfinder/
 RUN pip install -r requirements.txt --no-cache-dir
 
-FROM chainguard/python:latest@sha256:df07729a6842572922ea04b17580ce397f141fbfb9f88265972a840f5fbc567e
+FROM chainguard/python:latest@sha256:136aad7020e00a98f617f3d3343cc7601b7823405eb2bc581eae5f5a8c21e8d0
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-08-03"

@@ -1,1 +1,1 @@
-flawfinder==2.0.19
+flawfinder==2.0.20

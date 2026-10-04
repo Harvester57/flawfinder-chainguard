@@ -2,10 +2,10 @@
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
 FROM chainguard/python:latest-dev@sha256:62dce7cededa1d3e50394d30b33e059a3b7c3d21187fea35bab4419abb245420 AS builder
 
-ENV LANG=C.UTF-8
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV TZ="Europe/Paris"
+ENV LANG=C.UTF-8 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    TZ="Europe/Paris"
 
 WORKDIR /flawfinder
 COPY requirements.txt .
@@ -17,19 +17,18 @@ RUN pip install -r requirements.txt --no-cache-dir
 
 FROM chainguard/python:latest@sha256:136aad7020e00a98f617f3d3343cc7601b7823405eb2bc581eae5f5a8c21e8d0
 
-LABEL maintainer="florian.stosse@gmail.com"
-LABEL lastupdate="2025-08-03"
-LABEL author="Florian Stosse"
-LABEL description="Flawfinder v2.0.19, built using Python Chainguard based image"
-LABEL license="MIT license"
+LABEL org.opencontainers.image.authors="Florian Stosse <florian.stosse@gmail.com>"
+LABEL org.opencontainers.image.created="2025-08-03"
+LABEL org.opencontainers.image.description="Flawfinder v2.0.19, built using Python Chainguard based image"
+LABEL org.opencontainers.image.licenses="MIT license"
 
 WORKDIR /venv
 
-ENV LANG=C.UTF-8
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV TZ="Europe/Paris"
-ENV PATH="/venv/bin:$PATH"
+ENV LANG=C.UTF-8 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    TZ="Europe/Paris" \
+    PATH="/venv/bin:$PATH"
 
 COPY --from=builder /flawfinder/venv /venv
 
